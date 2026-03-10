@@ -63,7 +63,7 @@ authRouter.post("/login", async (req, res) => {
     }
     // const token=await jwt.sign({_id : user._id},"devT$7",{expiresIn:"7d"})
     const token=await user.getJWT();
-      res.cookie("token",token,{expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),httpOnly:true,secure:false,sameSite:"lax"})
+      res.cookie("token",token,{expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),httpOnly:true,secure:true,sameSite:"none"})
       // console.log(token)
       res.send(user);
   } catch (err) {
