@@ -54,7 +54,7 @@ userRouter.get("/feed",auth,async(req,res)=>{
          }
 
       ).select("fromUserId toUserId")
-      // .populate("fromUserId","firstName").populate("toUserId","firstName")
+      .populate("fromUserId","firstName").populate("toUserId","firstName")
       const hidenUserFromFeed=new Set();
       connectionRequest.forEach(req=>{
          hidenUserFromFeed.add(req.fromUserId.toString());

@@ -8,7 +8,7 @@ const auth=async(req,res,next)=>{
     if(!token){
         return res.status(401).send("u r not authorised, please login ")
     }
-    const dmsg=await jwt.verify(token,process.env.JWT_SECRET)
+    const dmsg=await jwt.verify(token,"devT$7")
     const {_id}=dmsg;
     const user=await UserModel.findById(_id);
     if(!user){
